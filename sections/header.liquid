@@ -1,0 +1,95 @@
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      {% if shop.logo %}
+        <img src="{{ shop.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="logo-image">
+      {% else %}
+        <a href="/">{{ shop.name }}</a>
+      {% endif %}
+    </div>
+
+    <nav class="navigation">
+      <ul class="nav-list">
+        {% for link in linklists.main-menu.links %}
+          <li>
+            <a href="{{ link.url }}" {% if link.active %}class="active"{% endif %}>
+              {{ link.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="header-icons">
+      <a href="/search" class="search-icon">
+        <svg><!-- search icon --></svg>
+      </a>
+      <a href="/account" class="account-icon">
+        <svg><!-- account icon --></svg>
+      </a>
+      <a href="/cart" class="cart-icon">
+        <svg><!-- cart icon --></svg>
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    background-color: {{ settings.color_secondary }};
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .logo img {
+    height: 50px;
+    width: auto;
+  }
+
+  .navigation .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .header-icons {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .cart-icon {
+    position: relative;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: {{ settings.color_primary }};
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Encabezado",
+  "settings": []
+}
+{% endschema %}

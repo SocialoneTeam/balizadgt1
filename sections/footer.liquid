@@ -1,0 +1,92 @@
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>{{ shop.name }}</h3>
+      <p>{{ shop.description }}</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Enlaces</h4>
+      <ul>
+        {% for link in linklists.footer-menu.links %}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Contacto</h4>
+      <p>{{ shop.email }}</p>
+      <p>{{ shop.phone }}</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Síguenos</h4>
+      <ul class="social-links">
+        {% if settings.facebook_url %}
+          <li><a href="{{ settings.facebook_url }}" target="_blank">Facebook</a></li>
+        {% endif %}
+        {% if settings.instagram_url %}
+          <li><a href="{{ settings.instagram_url }}" target="_blank">Instagram</a></li>
+        {% endif %}
+        {% if settings.twitter_url %}
+          <li><a href="{{ settings.twitter_url }}" target="_blank">Twitter</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; {{ now | date: "%Y" }} {{ shop.name }}. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: {{ settings.color_primary }};
+    color: white;
+    padding: 3rem 2rem 1rem;
+    margin-top: 3rem;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    margin-bottom: 1rem;
+  }
+
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-section a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 2rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Pie de página",
+  "settings": []
+}
+{% endschema %}

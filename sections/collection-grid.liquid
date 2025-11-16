@@ -1,0 +1,71 @@
+<section class="collection-grid-section">
+  {% if section.settings.collection %}
+    {% assign collection = section.settings.collection %}
+    <div class="collection-grid-container">
+      <h2>{{ section.settings.title }}</h2>
+      <div class="grid">
+        {% for product in collection.products limit: section.settings.products_per_row %}
+          {% include 'product-card', product: product %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+</section>
+
+<style>
+  .collection-grid-section {
+    padding: 3rem 2rem;
+  }
+
+  .collection-grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .collection-grid-container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Grid de Colección",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Colecciones"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colección"
+    },
+    {
+      "type": "range",
+      "id": "products_per_row",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "unit": "producto",
+      "label": "Productos por fila",
+      "default": 4
+    }
+  ]
+}
+{% endschema %}

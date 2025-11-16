@@ -1,0 +1,273 @@
+/* Footer Styles */
+.footer {
+  background: #111827;
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.footer__logo-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+}
+
+.footer__logo-accent {
+  color: #dc2626;
+}
+
+.footer__logo svg {
+  color: #3b82f6;
+}
+
+.footer__description {
+  color: #d1d5db;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #374151;
+  color: #d1d5db;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.footer__social-link:hover {
+  background: #3b82f6;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.footer__section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer__link {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__link:hover {
+  color: white;
+}
+
+.footer__contact {
+  margin-bottom: 1.5rem;
+}
+
+.footer__contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #d1d5db;
+  margin-bottom: 0.75rem;
+}
+
+.footer__contact-item svg {
+  color: #3b82f6;
+  flex-shrink: 0;
+}
+
+.footer__hours {
+  background: #1e40af;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.footer__hours-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.footer__hours-text {
+  color: #bfdbfe;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.footer__bottom {
+  border-top: 1px solid #374151;
+  padding-top: 1.5rem;
+}
+
+.footer__bottom-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.footer__legal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.footer__legal-link {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.footer__legal-link:hover {
+  color: white;
+}
+
+.footer__certification {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #10b981;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.footer__certification svg {
+  color: #10b981;
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .footer__content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+  
+  .footer__bottom-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  
+  .footer__legal {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+  
+  .footer__legal-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .footer {
+    padding: 4rem 0 2rem;
+  }
+  
+  .footer__content {
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+  }
+  
+  .footer__social {
+    gap: 0.75rem;
+  }
+  
+  .footer__social-link {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer__content {
+    gap: 2rem;
+  }
+  
+  .footer__section {
+    text-align: center;
+  }
+  
+  .footer__logo {
+    justify-content: center;
+  }
+  
+  .footer__social {
+    justify-content: center;
+  }
+  
+  .footer__contact {
+    text-align: left;
+  }
+  
+  .footer__legal-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .footer {
+    background: #000000;
+  }
+  
+  .footer__hours {
+    background: #1e3a8a;
+  }
+}

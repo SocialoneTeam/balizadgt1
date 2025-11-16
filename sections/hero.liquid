@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="{{ 'section-hero.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-hero.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="hero" id="inicio">
+  <div class="hero__container page-width">
+    <div class="hero__content">
+      <div class="hero__text">
+        <div class="hero__badge">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+          <span class="hero__badge-text">{{ section.settings.badge_text | default: 'OBLIGATORIO 2026' }}</span>
+        </div>
+        
+        <h1 class="hero__title">
+          {{ section.settings.title | default: 'Baliza DGT V16' }}
+          <span class="hero__title-accent">{{ section.settings.title_accent | default: 'Homologada DGT' }}</span>
+        </h1>
+        
+        <p class="hero__description">
+          {{ section.settings.description | default: 'El nuevo dispositivo de preseñalización de peligro que sustituirá a los triángulos de emergencia a partir del 1 de enero de 2026.' }}
+        </p>
+
+        <div class="hero__buttons">
+          <a href="{{ collections.all.url }}" class="hero__button hero__button--primary">
+            {{ section.settings.primary_button_text | default: 'Comprar Ahora' }}
+          </a>
+          <a href="{{ collections.all.url }}" class="hero__button hero__button--secondary">
+            {{ section.settings.secondary_button_text | default: 'Ver Productos' }}
+          </a>
+        </div>
+
+        <div class="hero__features">
+          <div class="hero__feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            <span>{{ section.settings.feature_1 | default: 'Homologada DGT' }}</span>
+          </div>
+          <div class="hero__feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>{{ section.settings.feature_2 | default: 'Geolocalización GPS' }}</span>
+          </div>
+          <div class="hero__feature">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12,6 12,12 16,14"></polyline>
+            </svg>
+            <span>{{ section.settings.feature_3 | default: 'Batería 2+ años' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__image">
+        <div class="hero__image-container">
+          {% if section.settings.hero_image != blank %}
+            <img src="{{ section.settings.hero_image | image_url: width: 600 }}" 
+                 alt="{{ section.settings.hero_image.alt | default: 'Baliza DGT V16' }}"
+                 class="hero__image-main">
+          {% else %}
+            <img src="https://images.pexels.com/photos/5835359/pexels-photo-5835359.jpeg?auto=compress&cs=tinysrgb&w=600" 
+                 alt="Baliza DGT V16 en carretera"
+                 class="hero__image-main">
+          {% endif %}
+          <div class="hero__price-badge">
+            <span class="hero__price-text">{{ section.settings.price_text | default: 'Desde 79€' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto del badge",
+      "default": "OBLIGATORIO 2026"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título principal",
+      "default": "Baliza DGT V16"
+    },
+    {
+      "type": "text",
+      "id": "title_accent",
+      "label": "Título acento",
+      "default": "DGT Oficial"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "El nuevo dispositivo de preseñalización de peligro que sustituirá a los triángulos de emergencia a partir del 1 de enero de 2026."
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Texto botón primario",
+      "default": "Comprar Ahora"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Texto botón secundario",
+      "default": "Ver Productos"
+    },
+    {
+      "type": "text",
+      "id": "feature_1",
+      "label": "Característica 1",
+      "default": "Homologada DGT"
+    },
+    {
+      "type": "text",
+      "id": "feature_2",
+      "label": "Característica 2",
+      "default": "Geolocalización GPS"
+    },
+    {
+      "type": "text",
+      "id": "feature_3",
+      "label": "Característica 3",
+      "default": "Batería 2+ años"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagen principal"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Texto del precio",
+      "default": "Desde 79€"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,98 +1,100 @@
-<div class="product-card">
-  <div class="product-image-wrapper">
+<div class="product-card" data-product-id="{{ product.id }}">
+  <div class="product-card__image">
     {% if product.featured_image %}
-      <img src="{{ product.featured_image | image_url: width: 300 }}" alt="{{ product.title }}" class="product-image">
+      <img src="{{ product.featured_image | image_url: width: 400 }}" 
+           alt="{{ product.featured_image.alt | default: product.title }}"
+           class="product-card__image-main">
+    {% else %}
+      <div class="product-card__image-placeholder">
+        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21,15 16,10 5,21"></polyline>
+        </svg>
+      </div>
     {% endif %}
+    
+    {% if product.tags contains 'popular' %}
+      <div class="product-card__badge product-card__badge--popular">MÁS VENDIDO</div>
+    {% endif %}
+    
     {% if product.compare_at_price > product.price %}
-      <div class="badge">Oferta</div>
+      {% assign discount = product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price %}
+      <div class="product-card__badge product-card__badge--discount">-{{ discount }}%</div>
     {% endif %}
   </div>
+  
+  <div class="product-card__content">
+    <h3 class="product-card__title">
+      <a href="{{ product.url }}">{{ product.title }}</a>
+    </h3>
+    
+    <div class="product-card__price">
+      <span class="product-card__price-current">{{ product.price | money }}</span>
+      {% if product.compare_at_price > product.price %}
+        <span class="product-card__price-original">{{ product.compare_at_price | money }}</span>
+      {% endif %}
+    </div>
 
-  <div class="product-card-content">
-    <h3><a href="{{ product.url }}">{{ product.title }}</a></h3>
-    {% include 'price', product: product %}
-
-    <form method="post" action="/cart/add" class="product-card-form">
-      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-      <button type="submit" class="btn btn-secondary">Agregar</button>
-    </form>
+    {% if product.metafields.custom.features %}
+      <div class="product-card__features">
+        {% assign features = product.metafields.custom.features | split: ',' %}
+        {% for feature in features limit: 3 %}
+          <div class="product-card__feature">
+            {% if feature contains 'Homologada' %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            {% elsif feature contains 'GPS' %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            {% elsif feature contains 'Batería' %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect>
+                <line x1="23" y1="13" x2="23" y2="11"></line>
+              </svg>
+            {% elsif feature contains 'App' %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            {% else %}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            {% endif %}
+            <span>{{ feature | strip }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    
+    <div class="product-card__stock">
+      {% if product.available %}
+        <span class="product-card__stock-badge product-card__stock-badge--in-stock">En Stock</span>
+      {% else %}
+        <span class="product-card__stock-badge product-card__stock-badge--out-of-stock">Agotado</span>
+      {% endif %}
+    </div>
+    
+    {% if product.available %}
+      <button class="product-card__button" 
+              onclick="addToCart({{ product.selected_or_first_available_variant.id }}, '{{ product.title | escape }}')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span>Añadir al Carrito</span>
+      </button>
+    {% else %}
+      <button class="product-card__button product-card__button--disabled" disabled>
+        <span>Sin Stock</span>
+      </button>
+    {% endif %}
   </div>
 </div>
-
-<style>
-  .product-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  }
-
-  .product-image-wrapper {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 1;
-  }
-
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #e74c3c;
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-  }
-
-  .product-card-content {
-    padding: 1rem;
-  }
-
-  .product-card h3 {
-    margin: 0 0 0.5rem;
-    font-size: 1rem;
-  }
-
-  .product-card a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .product-card a:hover {
-    color: {{ settings.color_primary }};
-  }
-
-  .product-card-form {
-    margin-top: 1rem;
-  }
-
-  .btn {
-    width: 100%;
-    padding: 0.75rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.875rem;
-    transition: background-color 0.2s;
-  }
-
-  .btn-secondary {
-    background-color: {{ settings.color_primary }};
-    color: white;
-  }
-
-  .btn-secondary:hover {
-    opacity: 0.9;
-  }
-</style>

@@ -1,0 +1,259 @@
+<link rel="stylesheet" href="{{ 'section-collection-list.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-collection-list.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="products-section" id="productos">
+  <div class="page-width">
+    <div class="products-section__header">
+      <h2 class="products-section__title">{{ section.settings.title | default: 'Nuestros Productos' }}</h2>
+      <p class="products-section__description">
+        {{ section.settings.description | default: 'Toda la gama de balizas V16 homologadas por la DGT. Encuentra el modelo que mejor se adapte a tus necesidades.' }}
+      </p>
+    </div>
+
+    <div class="products-grid">
+      {% assign collection = collections[section.settings.collection] %}
+      {% if collection.products.size > 0 %}
+        {% for product in collection.products limit: section.settings.products_to_show %}
+          {% render 'product-card', product: product %}
+        {% endfor %}
+      {% else %}
+        <!-- Productos de ejemplo si no hay productos configurados -->
+        {% for i in (1..4) %}
+          <div class="product-card">
+            <div class="product-card__image">
+              {% case i %}
+                {% when 1 %}
+                  <img src="https://images.pexels.com/photos/163792/model-car-land-vehicle-toy-car-163792.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Baliza DGT V16 Premium GPS">
+                  <div class="product-card__badge product-card__badge--popular">MÁS VENDIDO</div>
+                  <div class="product-card__badge product-card__badge--discount">-25%</div>
+                {% when 2 %}
+                  <img src="https://images.pexels.com/photos/1118448/pexels-photo-1118448.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Baliza DGT V16 Estándar">
+                  <div class="product-card__badge product-card__badge--discount">-20%</div>
+                {% when 3 %}
+                  <img src="https://images.pexels.com/photos/248747/pexels-photo-248747.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Baliza DGT V16 Pro Connect">
+                  <div class="product-card__badge product-card__badge--discount">-19%</div>
+                {% when 4 %}
+                  <img src="https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Pack Familiar 2 Balizas">
+                  <div class="product-card__badge product-card__badge--discount">-16%</div>
+              {% endcase %}
+            </div>
+            
+            <div class="product-card__content">
+              {% case i %}
+                {% when 1 %}
+                  <h3 class="product-card__title">Baliza DGT V16 Premium GPS</h3>
+                  <div class="product-card__price">
+                    <span class="product-card__price-current">€89</span>
+                    <span class="product-card__price-original">€119</span>
+                  </div>
+                  <div class="product-card__features">
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      <span>Homologada DGT</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13"></rect>
+                        <path d="M16 8h4l3 3v5h-7V8z"></path>
+                        <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                        <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                      </svg>
+                      <span>GPS integrado de alta precisión</span>
+                    </div>
+                  </div>
+                {% when 2 %}
+                  <h3 class="product-card__title">Baliza DGT V16 Estándar</h3>
+                  <div class="product-card__price">
+                    <span class="product-card__price-current">€79</span>
+                    <span class="product-card__price-original">€99</span>
+                  </div>
+                  <div class="product-card__features">
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      <span>Homologada DGT</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="M7 15h0M17 15h0"></path>
+                      </svg>
+                      <span>Batería de 2 años</span>
+                    </div>
+                  </div>
+                {% when 3 %}
+                  <h3 class="product-card__title">Baliza DGT V16 Pro Connect</h3>
+                  <div class="product-card__price">
+                    <span class="product-card__price-current">€129</span>
+                    <span class="product-card__price-original">€159</span>
+                  </div>
+                  <div class="product-card__features">
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      <span>Homologada DGT</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                      </svg>
+                      <span>App avanzada con alertas</span>
+                    </div>
+                  </div>
+                {% when 4 %}
+                  <h3 class="product-card__title">Pack Familiar 2 Balizas</h3>
+                  <div class="product-card__price">
+                    <span class="product-card__price-current">€149</span>
+                    <span class="product-card__price-original">€178</span>
+                  </div>
+                  <div class="product-card__features">
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                      </svg>
+                      <span>2 Balizas V16 Premium</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <rect x="9" y="9" width="6" height="6"></rect>
+                      </svg>
+                      <span>Estuche de transporte</span>
+                    </div>
+                  </div>
+              {% endcase %}
+              
+              <div class="product-card__stock">
+                <span class="product-card__stock-badge product-card__stock-badge--in-stock">En Stock</span>
+              </div>
+              
+              <button class="product-card__button" onclick="addToCart({{ i }})">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
+                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span>Añadir al Carrito</span>
+              </button>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="products-section__cta">
+      <div class="products-section__help-box">
+        <h3 class="products-section__help-title">{{ section.settings.help_title | default: '¿Necesitas ayuda para elegir?' }}</h3>
+        <p class="products-section__help-text">
+          {{ section.settings.help_text | default: 'Nuestro equipo de expertos te ayudará a encontrar la baliza perfecta para tu vehículo.' }}
+        </p>
+        <a href="{{ pages.contact.url }}" class="products-section__help-button">
+          {{ section.settings.help_button_text | default: 'Contactar con Expertos' }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function addToCart(productId) {
+  // Aquí iría la lógica de añadir al carrito de Shopify
+  console.log('Añadiendo producto al carrito:', productId);
+  
+  // Ejemplo de integración con Shopify Cart API
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: productId,
+      quantity: 1
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Producto añadido:', data);
+    // Actualizar contador del carrito
+    updateCartCount();
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+function updateCartCount() {
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      const cartCount = document.querySelector('.header__cart-count');
+      if (cartCount) {
+        cartCount.textContent = cart.item_count;
+        cartCount.style.display = cart.item_count > 0 ? 'block' : 'none';
+      }
+    });
+}
+</script>
+
+{% schema %}
+{
+  "name": "Featured Collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título de la sección",
+      "default": "Nuestros Productos"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Toda la gama de balizas V16 homologadas por la DGT. Encuentra el modelo que mejor se adapte a tus necesidades."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Colección"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "label": "Productos a mostrar",
+      "default": 4
+    },
+    {
+      "type": "text",
+      "id": "help_title",
+      "label": "Título de ayuda",
+      "default": "¿Necesitas ayuda para elegir?"
+    },
+    {
+      "type": "textarea",
+      "id": "help_text",
+      "label": "Texto de ayuda",
+      "default": "Nuestro equipo de expertos te ayudará a encontrar la baliza perfecta para tu vehículo."
+    },
+    {
+      "type": "text",
+      "id": "help_button_text",
+      "label": "Texto del botón de ayuda",
+      "default": "Contactar con Expertos"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection"
+    }
+  ]
+}
+{% endschema %}

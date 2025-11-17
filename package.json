@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --config react-app/vite.config.ts",
-    "build": "vite build --config react-app/vite.config.ts",
+    "dev": "cd react-app && vite",
+    "build": "cd react-app && vite build",
     "lint": "eslint react-app",
-    "preview": "vite preview --config react-app/vite.config.ts"
+    "preview": "cd react-app && vite preview"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^4.0.2",

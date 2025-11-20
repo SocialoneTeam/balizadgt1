@@ -323,3 +323,61 @@ a:focus {
   border-top: 1px solid #e5e7eb;
   background-color: #f9fafb;
 }
+
+/* Notification System */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 1rem 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  transform: translateX(400px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 400px;
+}
+
+.notification--show {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notification__content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.notification--success {
+  border-left: 4px solid #10b981;
+}
+
+.notification--success svg {
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.notification--error {
+  border-left: 4px solid #ef4444;
+}
+
+.notification--error svg {
+  color: #ef4444;
+  flex-shrink: 0;
+}
+
+.notification__content span {
+  color: #374151;
+  font-weight: 500;
+}
+
+@media (max-width: 767px) {
+  .notification {
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+}

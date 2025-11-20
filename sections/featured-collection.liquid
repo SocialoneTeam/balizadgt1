@@ -133,14 +133,12 @@
                 <span class="product-card__stock-badge product-card__stock-badge--in-stock">En Stock</span>
               </div>
               
-              <button class="product-card__button" onclick="addToCart({{ i }})">
+              <a href="/collections/all" class="product-card__button">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                  <line x1="3" y1="6" x2="21" y2="6"></line>
-                  <path d="M16 10a4 4 0 0 1-8 0"></path>
+                  <path d="M15 18l6-6-6-6M9 6l-6 6 6 6"></path>
                 </svg>
-                <span>Añadir al Carrito</span>
-              </button>
+                <span>Ver Detalles</span>
+              </a>
             </div>
           </div>
         {% endfor %}
@@ -161,45 +159,6 @@
   </div>
 </section>
 
-<script>
-function addToCart(productId) {
-  // Aquí iría la lógica de añadir al carrito de Shopify
-  console.log('Añadiendo producto al carrito:', productId);
-  
-  // Ejemplo de integración con Shopify Cart API
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      id: productId,
-      quantity: 1
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Producto añadido:', data);
-    // Actualizar contador del carrito
-    updateCartCount();
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
-
-function updateCartCount() {
-  fetch('/cart.js')
-    .then(response => response.json())
-    .then(cart => {
-      const cartCount = document.querySelector('.header__cart-count');
-      if (cartCount) {
-        cartCount.textContent = cart.item_count;
-        cartCount.style.display = cart.item_count > 0 ? 'block' : 'none';
-      }
-    });
-}
-</script>
 
 {% schema %}
 {

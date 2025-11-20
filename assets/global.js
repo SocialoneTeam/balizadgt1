@@ -216,7 +216,81 @@ function formatMoney(cents, format) {
   return formatString.replace(placeholderRegex, value);
 }
 
+// Add to cart function
+function addToCart(variantId, productTitle) {
+  if (!variantId) {
+    showNotification('Error: ID de producto no válido', 'error');
+    return;
+  }
+
+  // Show loading state
+  const button = event.target.closest('button');
+  if (button) {
+    setLoading(button, true);
+  }
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      id: variantId,
+      quantity: 1
+    })
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Error al añadir al carrito');
+    }
+    return response.json();
+  })
+  .then(data => {
+    // Show success notification
+    showNotification(`${productTitle || 'Producto'} añadido al carrito`, 'success');
+
+    // Update cart count
+    updateCartCount();
+
+    // Open cart drawer
+    const cartDrawer = document.querySelector('cart-drawer');
+    if (cartDrawer) {
+      setTimeout(() => {
+        cartDrawer.open();
+      }, 500);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    showNotification('Error al añadir el producto al carrito', 'error');
+  })
+  .finally(() => {
+    // Remove loading state
+    if (button) {
+      setLoading(button, false);
+    }
+  });
+}
+
+// Update cart count
+function updateCartCount() {
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      const cartCount = document.querySelector('.header__cart-count');
+      if (cartCount) {
+        cartCount.textContent = cart.item_count;
+        cartCount.style.display = cart.item_count > 0 ? 'block' : 'none';
+      }
+    })
+    .catch(error => {
+      console.error('Error updating cart count:', error);
+    });
+}
+
 // Export global functions
+window.addToCart = addToCart;
+window.updateCartCount = updateCartCount;
 window.changeMainImage = changeMainImage;
 window.changeQuantity = changeQuantity;
 window.showNotification = showNotification;

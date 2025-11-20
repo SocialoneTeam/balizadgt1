@@ -15,20 +15,20 @@
         </div>
         
         <h1 class="hero__title">
-          {{ section.settings.title | default: 'Baliza DGT V16' }}
-          <span class="hero__title-accent">{{ section.settings.title_accent | default: 'Homologada DGT' }}</span>
+          {{ section.settings.title | default: 'Baliza V16' }}
+          <span class="hero__title-accent">{{ section.settings.title_accent | default: 'Certificada DGT' }}</span>
         </h1>
-        
+
         <p class="hero__description">
-          {{ section.settings.description | default: 'El nuevo dispositivo de preseñalización de peligro que sustituirá a los triángulos de emergencia a partir del 1 de enero de 2026.' }}
+          {{ section.settings.description | default: 'Baliza V16 certificada IDIADA PC25050254. Homologada oficialmente por la DGT para cumplir la normativa obligatoria desde el 1 de enero de 2026.' }}
         </p>
 
         <div class="hero__buttons">
-          <a href="{{ collections.all.url }}" class="hero__button hero__button--primary">
+          <a href="#productos" class="hero__button hero__button--primary">
             {{ section.settings.primary_button_text | default: 'Comprar Ahora' }}
           </a>
-          <a href="{{ collections.all.url }}" class="hero__button hero__button--secondary">
-            {{ section.settings.secondary_button_text | default: 'Ver Productos' }}
+          <a href="#productos" class="hero__button hero__button--secondary">
+            {{ section.settings.secondary_button_text | default: 'Ver Producto' }}
           </a>
         </div>
 
@@ -37,21 +37,21 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
-            <span>{{ section.settings.feature_1 | default: 'Homologada DGT' }}</span>
+            <span>{{ section.settings.feature_1 | default: 'Certificado IDIADA' }}</span>
           </div>
           <div class="hero__feature">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 12l2 2 4-4"></path>
               <circle cx="12" cy="12" r="10"></circle>
             </svg>
-            <span>{{ section.settings.feature_2 | default: 'Geolocalización GPS' }}</span>
+            <span>{{ section.settings.feature_2 | default: 'GPS + NB-IoT' }}</span>
           </div>
           <div class="hero__feature">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12,6 12,12 16,14"></polyline>
             </svg>
-            <span>{{ section.settings.feature_3 | default: 'Batería 2+ años' }}</span>
+            <span>{{ section.settings.feature_3 | default: 'Envío Gratuito' }}</span>
           </div>
         </div>
       </div>
@@ -68,7 +68,7 @@
                  class="hero__image-main">
           {% endif %}
           <div class="hero__price-badge">
-            <span class="hero__price-text">{{ section.settings.price_text | default: 'Desde 79€' }}</span>
+            <span class="hero__price-text">{{ section.settings.price_text | default: '129€' }}</span>
           </div>
         </div>
       </div>
@@ -90,19 +90,19 @@
       "type": "text",
       "id": "title",
       "label": "Título principal",
-      "default": "Baliza DGT V16"
+      "default": "Baliza V16"
     },
     {
       "type": "text",
       "id": "title_accent",
       "label": "Título acento",
-      "default": "DGT Oficial"
+      "default": "Certificada DGT"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Descripción",
-      "default": "El nuevo dispositivo de preseñalización de peligro que sustituirá a los triángulos de emergencia a partir del 1 de enero de 2026."
+      "default": "Baliza V16 certificada IDIADA PC25050254. Homologada oficialmente por la DGT para cumplir la normativa obligatoria desde el 1 de enero de 2026."
     },
     {
       "type": "text",
@@ -114,25 +114,25 @@
       "type": "text",
       "id": "secondary_button_text",
       "label": "Texto botón secundario",
-      "default": "Ver Productos"
+      "default": "Ver Producto"
     },
     {
       "type": "text",
       "id": "feature_1",
       "label": "Característica 1",
-      "default": "Homologada DGT"
+      "default": "Certificado IDIADA"
     },
     {
       "type": "text",
       "id": "feature_2",
       "label": "Característica 2",
-      "default": "Geolocalización GPS"
+      "default": "GPS + NB-IoT"
     },
     {
       "type": "text",
       "id": "feature_3",
       "label": "Característica 3",
-      "default": "Batería 2+ años"
+      "default": "Envío Gratuito"
     },
     {
       "type": "image_picker",
@@ -143,7 +143,7 @@
       "type": "text",
       "id": "price_text",
       "label": "Texto del precio",
-      "default": "Desde 79€"
+      "default": "129€"
     }
   ],
   "presets": [

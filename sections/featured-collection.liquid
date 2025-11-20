@@ -4,9 +4,9 @@
 <section class="products-section" id="productos">
   <div class="page-width">
     <div class="products-section__header">
-      <h2 class="products-section__title">{{ section.settings.title | default: 'Nuestros Productos' }}</h2>
+      <h2 class="products-section__title">{{ section.settings.title | default: 'Baliza V16 Certificada' }}</h2>
       <p class="products-section__description">
-        {{ section.settings.description | default: 'Toda la gama de balizas V16 homologadas por la DGT. Encuentra el modelo que mejor se adapte a tus necesidades.' }}
+        {{ section.settings.description | default: 'La baliza V16 homologada por la DGT con certificación IDIADA. Cumple con todos los requisitos legales obligatorios desde 2026.' }}
       </p>
     </div>
 
@@ -18,7 +18,7 @@
         {% endfor %}
       {% else %}
         <!-- Productos de ejemplo si no hay productos configurados -->
-        {% for i in (1..4) %}
+        {% for i in (1..1) %}
           <div class="product-card">
             <div class="product-card__image">
               {% case i %}
@@ -41,17 +41,24 @@
             <div class="product-card__content">
               {% case i %}
                 {% when 1 %}
-                  <h3 class="product-card__title">Baliza DGT V16 Premium GPS</h3>
+                  <h3 class="product-card__title">Challux V16 CH-019 Premium GPS</h3>
                   <div class="product-card__price">
-                    <span class="product-card__price-current">€89</span>
-                    <span class="product-card__price-original">€119</span>
+                    <span class="product-card__price-current">€129</span>
+                    <span class="product-card__price-original">€159</span>
                   </div>
                   <div class="product-card__features">
                     <div class="product-card__feature">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                       </svg>
-                      <span>Homologada DGT</span>
+                      <span>Certificado IDIADA PC25050254</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                      </svg>
+                      <span>12 LEDs super brillantes</span>
                     </div>
                     <div class="product-card__feature">
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -60,7 +67,14 @@
                         <circle cx="5.5" cy="18.5" r="2.5"></circle>
                         <circle cx="18.5" cy="18.5" r="2.5"></circle>
                       </svg>
-                      <span>GPS integrado de alta precisión</span>
+                      <span>GPS + NB-IoT Telefónica Tech</span>
+                    </div>
+                    <div class="product-card__feature">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                      <span>Resistencia IP54 (-10°C a +50°C)</span>
                     </div>
                   </div>
                 {% when 2 %}
@@ -147,11 +161,11 @@
 
     <div class="products-section__cta">
       <div class="products-section__help-box">
-        <h3 class="products-section__help-title">{{ section.settings.help_title | default: '¿Necesitas ayuda para elegir?' }}</h3>
+        <h3 class="products-section__help-title">{{ section.settings.help_title | default: '¿Tienes dudas sobre la baliza V16?' }}</h3>
         <p class="products-section__help-text">
-          {{ section.settings.help_text | default: 'Nuestro equipo de expertos te ayudará a encontrar la baliza perfecta para tu vehículo.' }}
+          {{ section.settings.help_text | default: 'Nuestro equipo de expertos está disponible para resolver todas tus preguntas sobre la normativa DGT y las características del producto.' }}
         </p>
-        <a href="{{ pages.contact.url }}" class="products-section__help-button">
+        <a href="#contacto" class="products-section__help-button">
           {{ section.settings.help_button_text | default: 'Contactar con Expertos' }}
         </a>
       </div>
@@ -168,13 +182,13 @@
       "type": "text",
       "id": "title",
       "label": "Título de la sección",
-      "default": "Nuestros Productos"
+      "default": "Baliza V16 Certificada"
     },
     {
       "type": "textarea",
       "id": "description",
       "label": "Descripción",
-      "default": "Toda la gama de balizas V16 homologadas por la DGT. Encuentra el modelo que mejor se adapte a tus necesidades."
+      "default": "La baliza V16 homologada por la DGT con certificación IDIADA. Cumple con todos los requisitos legales obligatorios desde 2026."
     },
     {
       "type": "collection",
@@ -188,19 +202,19 @@
       "max": 12,
       "step": 1,
       "label": "Productos a mostrar",
-      "default": 4
+      "default": 1
     },
     {
       "type": "text",
       "id": "help_title",
       "label": "Título de ayuda",
-      "default": "¿Necesitas ayuda para elegir?"
+      "default": "¿Tienes dudas sobre la baliza V16?"
     },
     {
       "type": "textarea",
       "id": "help_text",
       "label": "Texto de ayuda",
-      "default": "Nuestro equipo de expertos te ayudará a encontrar la baliza perfecta para tu vehículo."
+      "default": "Nuestro equipo de expertos está disponible para resolver todas tus preguntas sobre la normativa DGT y las características del producto."
     },
     {
       "type": "text",

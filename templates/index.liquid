@@ -1,38 +1,4 @@
-{% comment %}
-  The home page template
-{% endcomment %}
-
 {% section 'hero' %}
 {% section 'featured-collection' %}
-
-{% comment %}
-  Additional sections can be added here
-{% endcomment %}
-
-{% if section.settings.show_normativa %}
-  {% section 'normativa' %}
-{% endif %}
-
-{% if section.settings.show_faq %}
-  {% section 'faq' %}
-{% endif %}
-
-{% schema %}
-{
-  "name": "Homepage",
-  "settings": [
-    {
-      "type": "checkbox",
-      "id": "show_normativa",
-      "label": "Mostrar sección de normativa",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_faq",
-      "label": "Mostrar sección de FAQ",
-      "default": true
-    }
-  ]
-}
-{% endschema %}
+{% section 'normativa' %}
+{% section 'faq' %}

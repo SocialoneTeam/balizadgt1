@@ -1,0 +1,65 @@
+<link rel="stylesheet" href="{{ 'template-collection.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'template-collection.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="collection-template">
+  <div class="page-width">
+    <div class="collection-header">
+      <h1 class="collection-title">{{ collection.title }}</h1>
+      {% if collection.description != blank %}
+        <div class="collection-description">
+          {{ collection.description }}
+        </div>
+      {% endif %}
+
+      <div class="collection-info">
+        <span class="collection-count">{{ collection.products_count }} productos</span>
+      </div>
+    </div>
+
+    {% if collection.products.size > 0 %}
+      <div class="collection-products">
+        <div class="products-grid">
+          {% for product in collection.products %}
+            {% render 'product-card', product: product %}
+          {% endfor %}
+        </div>
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <div class="pagination">
+          {% if paginate.previous %}
+            <a href="{{ paginate.previous.url }}" class="pagination__link pagination__link--prev">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15,18 9,12 15,6"></polyline>
+              </svg>
+              Anterior
+            </a>
+          {% endif %}
+
+          <span class="pagination__info">
+            Página {{ paginate.current_page }} de {{ paginate.pages }}
+          </span>
+
+          {% if paginate.next %}
+            <a href="{{ paginate.next.url }}" class="pagination__link pagination__link--next">
+              Siguiente
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9,18 15,12 9,6"></polyline>
+              </svg>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="collection-empty">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        <h2>No hay productos en esta colección</h2>
+        <p>Vuelve pronto para ver nuestros nuevos productos</p>
+        <a href="{{ routes.root_url }}" class="btn btn--primary">Volver al inicio</a>
+      </div>
+    {% endif %}
+  </div>
+</div>

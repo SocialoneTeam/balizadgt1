@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="{{ 'template-cart.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'template-cart.css' | asset_url | stylesheet_tag }}</noscript>
+
+<div class="cart-template">
+  <div class="page-width">
+    <div class="cart-header">
+      <h1 class="cart-title">Tu carrito</h1>
+    </div>
+
+    {% if cart.item_count > 0 %}
+      <form action="{{ routes.cart_url }}" method="post" novalidate class="cart-form">
+        <div class="cart-items">
+          {% for item in cart.items %}
+            <div class="cart-item" data-line="{{ forloop.index }}">
+              <div class="cart-item__image">
+                {% if item.image %}
+                  <img src="{{ item.image | image_url: width: 150 }}" alt="{{ item.image.alt | escape }}">
+                {% endif %}
+              </div>
+
+              <div class="cart-item__details">
+                <h3 class="cart-item__title">
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                </h3>
+
+                {% unless item.product.has_only_default_variant %}
+                  <div class="cart-item__variant">
+                    {% for option in item.options_with_values %}
+                      <span>{{ option.name }}: {{ option.value }}</span>
+                    {% endfor %}
+                  </div>
+                {% endunless %}
+
+                <div class="cart-item__price">
+                  <span class="price-current">{{ item.final_price | money }}</span>
+                  {% if item.original_price != item.final_price %}
+                    <span class="price-original">{{ item.original_price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+
+              <div class="cart-item__quantity">
+                <label for="updates_{{ item.key }}">Cantidad:</label>
+                <div class="quantity-controls">
+                  <button type="button" class="quantity-btn" onclick="updateQuantity('{{ item.key }}', {{ item.quantity | minus: 1 }})">-</button>
+                  <input type="number"
+                         id="updates_{{ item.key }}"
+                         name="updates[]"
+                         value="{{ item.quantity }}"
+                         min="0"
+                         class="quantity-input"
+                         data-line="{{ forloop.index }}">
+                  <button type="button" class="quantity-btn" onclick="updateQuantity('{{ item.key }}', {{ item.quantity | plus: 1 }})">+</button>
+                </div>
+              </div>
+
+              <div class="cart-item__total">
+                <span class="cart-item__total-label">Total:</span>
+                <span class="cart-item__total-price">{{ item.final_line_price | money }}</span>
+              </div>
+
+              <div class="cart-item__remove">
+                <button type="button"
+                        class="cart-item__remove-btn"
+                        onclick="removeItem('{{ item.key }}')">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="3,6 5,6 21,6"></polyline>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="cart-footer">
+          <div class="cart-note">
+            <label for="note">Instrucciones especiales:</label>
+            <textarea id="note" name="note" placeholder="¿Alguna indicación para tu pedido?">{{ cart.note }}</textarea>
+          </div>
+
+          <div class="cart-summary">
+            <div class="cart-summary__row">
+              <span>Subtotal:</span>
+              <span class="cart-subtotal">{{ cart.total_price | money }}</span>
+            </div>
+
+            <div class="cart-summary__row cart-summary__row--shipping">
+              <span>Envío:</span>
+              <span>Calculado en el checkout</span>
+            </div>
+
+            {% if cart.total_price < 10000 %}
+              <div class="cart-summary__notice">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>¡Añade {{ 10000 | minus: cart.total_price | money }} más para envío gratuito!</span>
+              </div>
+            {% endif %}
+
+            <div class="cart-summary__row cart-summary__row--total">
+              <span>Total:</span>
+              <span class="cart-total">{{ cart.total_price | money }}</span>
+            </div>
+
+            <button type="submit" name="checkout" class="cart-checkout-btn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              Proceder al pago
+            </button>
+
+            <div class="cart-continue">
+              <a href="{{ collections.all.url }}">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="15,18 9,12 15,6"></polyline>
+                </svg>
+                Continuar comprando
+              </a>
+            </div>
+          </div>
+        </div>
+      </form>
+    {% else %}
+      <div class="cart-empty">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <h2>Tu carrito está vacío</h2>
+        <p>Agrega productos para comenzar tu compra</p>
+        <a href="{{ collections.all.url }}" class="btn btn--primary">Ver productos</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+function updateQuantity(key, quantity) {
+  if (quantity < 0) return;
+
+  const formData = new FormData();
+  formData.append('updates[' + key + ']', quantity);
+
+  fetch('{{ routes.cart_update_url }}', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(cart => {
+    window.location.reload();
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    showNotification('Error al actualizar el carrito', 'error');
+  });
+}
+
+function removeItem(key) {
+  updateQuantity(key, 0);
+}
+</script>

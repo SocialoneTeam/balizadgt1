@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="{{ 'section-normativa.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-normativa.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="normativa" id="normativa">
+  <div class="page-width">
+    <div class="normativa__header">
+      <h2 class="normativa__title">{{ section.settings.title | default: 'Normativa DGT 2026' }}</h2>
+      <p class="normativa__subtitle">
+        {{ section.settings.subtitle | default: 'Todo lo que necesitas saber sobre la nueva normativa de balizas V16' }}
+      </p>
+    </div>
+
+    <div class="normativa__content">
+      <div class="normativa__main-info">
+        <div class="normativa__card normativa__card--highlight">
+          <div class="normativa__icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12,6 12,12 16,14"></polyline>
+            </svg>
+          </div>
+          <h3>Fecha límite: 1 de enero de 2026</h3>
+          <p>A partir de esta fecha, será obligatorio llevar la baliza V16 en tu vehículo. Los triángulos de emergencia quedarán obsoletos.</p>
+        </div>
+
+        <div class="normativa__grid">
+          <div class="normativa__card">
+            <div class="normativa__icon normativa__icon--success">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12l2 2 4-4"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+            </div>
+            <h4>¿Qué es la baliza V16?</h4>
+            <p>Un dispositivo luminoso de emergencia visible a 1 km de distancia que se coloca en el techo del vehículo.</p>
+          </div>
+
+          <div class="normativa__card">
+            <div class="normativa__icon normativa__icon--info">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h4>Homologación DGT</h4>
+            <p>Todas nuestras balizas están homologadas por la Dirección General de Tráfico según normativa vigente.</p>
+          </div>
+
+          <div class="normativa__card">
+            <div class="normativa__icon normativa__icon--warning">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h4>Mayor seguridad</h4>
+            <p>Evita tener que salir del vehículo para colocar triángulos, reduciendo el riesgo de accidentes.</p>
+          </div>
+
+          <div class="normativa__card">
+            <div class="normativa__icon normativa__icon--primary">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h4>Geolocalización GPS</h4>
+            <p>Permite avisar a otros conductores y servicios de emergencia de tu ubicación exacta.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="normativa__requirements">
+        <h3>Requisitos técnicos obligatorios</h3>
+        <ul class="normativa__list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Luz de emergencia amarilla visible a 1 km</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Base magnética para fijación al techo</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Autonomía mínima de 2 horas</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Homologación V16 por la DGT</span>
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 12l2 2 4-4"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+            <span>Resistente a condiciones climáticas adversas</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="normativa__cta">
+        <div class="normativa__cta-content">
+          <h3>¿Listo para cumplir con la normativa?</h3>
+          <p>Adelántate a 2026 y consigue tu baliza V16 homologada hoy mismo</p>
+          <a href="{{ collections.all.url }}" class="normativa__button">
+            Ver Balizas Homologadas
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Normativa DGT",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Normativa DGT 2026"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Todo lo que necesitas saber sobre la nueva normativa de balizas V16"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Normativa DGT"
+    }
+  ]
+}
+{% endschema %}

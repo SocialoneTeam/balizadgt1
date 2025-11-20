@@ -1,0 +1,173 @@
+<link rel="stylesheet" href="{{ 'section-faq.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'section-faq.css' | asset_url | stylesheet_tag }}</noscript>
+
+<section class="faq" id="faq">
+  <div class="page-width">
+    <div class="faq__header">
+      <h2 class="faq__title">{{ section.settings.title | default: 'Preguntas Frecuentes' }}</h2>
+      <p class="faq__subtitle">
+        {{ section.settings.subtitle | default: 'Resolvemos todas tus dudas sobre las balizas V16' }}
+      </p>
+    </div>
+
+    <div class="faq__grid">
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Cuándo es obligatoria la baliza V16?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>La baliza V16 será obligatoria a partir del <strong>1 de enero de 2026</strong>. A partir de esa fecha, todos los vehículos deberán llevar una baliza V16 homologada, y los triángulos de emergencia quedarán obsoletos.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Qué diferencia hay entre la baliza V16 y los triángulos?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>La principal diferencia es la <strong>seguridad</strong>. Con la baliza V16 no necesitas salir del vehículo para señalizar tu posición, ya que se coloca en el techo mediante una base magnética. Además, es visible a 1 km de distancia y puede incluir geolocalización GPS.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Cómo funciona la baliza V16?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>La baliza V16 es muy fácil de usar:</p>
+          <ol>
+            <li>En caso de emergencia, activa la baliza desde el interior del vehículo</li>
+            <li>Colócala en el techo con su base magnética bajando la ventanilla</li>
+            <li>La luz amarilla intermitente alertará a otros conductores a más de 1 km</li>
+            <li>Si tiene GPS, enviará tu ubicación a servicios de emergencia</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Cuánto dura la batería de la baliza?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>Las balizas V16 homologadas deben tener una <strong>autonomía mínima de 2 horas</strong> de funcionamiento continuo. Nuestros modelos premium ofrecen baterías con duración de hasta 3-4 años en modo standby antes de necesitar reemplazo.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Todas las balizas V16 están homologadas?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p><strong>No, no todas</strong>. Es fundamental verificar que la baliza cuente con la <strong>homologación V16 de la DGT</strong>. Todas nuestras balizas están certificadas y cumplen con la normativa vigente. Busca siempre el sello de homologación oficial.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Puedo seguir usando triángulos después de 2026?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>A partir del 1 de enero de 2026, <strong>los triángulos quedarán obsoletos</strong> y será obligatorio llevar una baliza V16. Te recomendamos adelantarte y conseguir tu baliza ahora para estar preparado.</p>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Qué baliza V16 debería comprar?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>Depende de tus necesidades:</p>
+          <ul>
+            <li><strong>Baliza Estándar:</strong> Cumple con la normativa básica, ideal para uso ocasional</li>
+            <li><strong>Baliza Premium GPS:</strong> Incluye geolocalización y batería de mayor duración</li>
+            <li><strong>Baliza Pro Connect:</strong> Conectividad 4G, app móvil y alertas automáticas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="faq__item">
+        <button class="faq__question" onclick="toggleFAQ(this)">
+          <span>¿Tengo que llevar una baliza por cada vehículo?</span>
+          <svg class="faq__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        <div class="faq__answer">
+          <p>Sí, <strong>cada vehículo debe llevar su propia baliza V16</strong>. Si tienes varios vehículos, considera nuestros packs familiares con descuento.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq__contact">
+      <h3>¿No encuentras respuesta a tu pregunta?</h3>
+      <p>Contacta con nuestro equipo de expertos y te ayudaremos encantados</p>
+      <a href="#contacto" class="faq__button">Contactar</a>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFAQ(button) {
+  const item = button.closest('.faq__item');
+  const answer = item.querySelector('.faq__answer');
+  const icon = button.querySelector('.faq__icon');
+
+  const isOpen = item.classList.contains('active');
+
+  document.querySelectorAll('.faq__item').forEach(faqItem => {
+    faqItem.classList.remove('active');
+    faqItem.querySelector('.faq__answer').style.maxHeight = null;
+  });
+
+  if (!isOpen) {
+    item.classList.add('active');
+    answer.style.maxHeight = answer.scrollHeight + 'px';
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Preguntas Frecuentes"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Resolvemos todas tus dudas sobre las balizas V16"
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ"
+    }
+  ]
+}
+{% endschema %}

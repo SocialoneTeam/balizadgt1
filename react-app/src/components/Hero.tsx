@@ -9,41 +9,41 @@ const Hero: React.FC = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <AlertTriangle className="text-yellow-400" size={28} />
-              <span className="bg-red-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+              <span className="bg-red-600 text-white px-3 py-1 rounded-full text-base font-semibold">
                 OBLIGATORIO 2026
               </span>
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Challux V16
-              <span className="block text-yellow-400">DGT Oficial</span>
+              Baliza V16
+              <span className="block text-yellow-400">Certificada DGT</span>
             </h1>
-            
-            <p className="text-xl md:text-2xl mb-8 text-blue-100 leading-relaxed">
-              Balizas V16 certificadas IDIADA con tecnología Challux. Homologadas oficialmente por la DGT para cumplir la normativa obligatoria desde 2026.
+
+            <p className="text-lg md:text-xl lg:text-2xl mb-8 text-blue-100 leading-relaxed">
+              Baliza V16 certificada IDIADA PC25050254. Homologada oficialmente por la DGT para cumplir la normativa obligatoria desde el 1 de enero de 2026.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg">
+              <a href="#productos" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 shadow-lg text-center">
                 Comprar Ahora
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all">
-                Ver Productos
-              </button>
+              </a>
+              <a href="#productos" className="border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all text-center">
+                Ver Producto
+              </a>
             </div>
 
-            <div className="flex items-center space-x-6 text-sm">
+            <div className="flex flex-wrap items-center gap-4 md:gap-6 text-base">
               <div className="flex items-center space-x-2">
-                <Shield className="text-green-400" size={20} />
+                <Shield className="text-green-400" size={22} />
                 <span>Certificado IDIADA</span>
               </div>
               <div className="flex items-center space-x-2">
-                <CheckCircle className="text-green-400" size={20} />
+                <CheckCircle className="text-green-400" size={22} />
                 <span>GPS + NB-IoT</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Clock className="text-green-400" size={20} />
-                <span>Tecnología Challux</span>
+                <Clock className="text-green-400" size={22} />
+                <span>Envío Gratuito</span>
               </div>
             </div>
           </div>
@@ -52,11 +52,11 @@ const Hero: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
               <img
                 src="https://images.pexels.com/photos/163792/model-car-land-vehicle-toy-car-163792.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Challux V16 Certificada DGT"
+                alt="Baliza V16 Certificada DGT IDIADA"
                 className="w-full h-64 md:h-80 object-cover rounded-lg shadow-2xl"
               />
-              <div className="absolute -bottom-4 -right-4 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                <span className="font-bold">Desde 89€</span>
+              <div className="absolute -bottom-4 -right-4 bg-red-600 text-white px-6 py-3 rounded-lg shadow-lg">
+                <span className="font-bold text-lg">129€</span>
               </div>
             </div>
           </div>

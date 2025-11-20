@@ -18,56 +18,13 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
         "12 LEDs super brillantes",
         "GPS + NB-IoT Telefónica Tech",
         "Resistencia IP54 (-10°C a +50°C)",
-        "Conectado con DGT 3.0"
+        "Conectado con DGT 3.0",
+        "Batería de larga duración",
+        "Activación automática en 0.4s",
+        "Garantía de 2 años"
       ],
       inStock: true,
       popular: true
-    },
-    {
-      id: 2,
-      name: "Challux V16 CH-015 Estándar",
-      price: 89,
-      originalPrice: 109,
-      image: "https://images.pexels.com/photos/1118448/pexels-photo-1118448.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: [
-        "Homologada DGT",
-        "12 LEDs super brillantes",
-        "GPS + NB-IoT networks",
-        "Resistencia IP54",
-        "Activación 0.4 segundos"
-      ],
-      inStock: true
-    },
-    {
-      id: 3,
-      name: "Challux V16 CH-020L Pro Connect",
-      price: 149,
-      originalPrice: 189,
-      image: "https://images.pexels.com/photos/248747/pexels-photo-248747.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: [
-        "Certificado DGT oficial",
-        "Indicadores LED inteligentes",
-        "NB-IoT + SIM card incluida",
-        "Conectividad Telefónica Tech",
-        "Geolocalización avanzada",
-        "App móvil premium"
-      ],
-      inStock: true
-    },
-    {
-      id: 4,
-      name: "Kit Emergencia Challux Completo",
-      price: 199,
-      originalPrice: 249,
-      image: "https://images.pexels.com/photos/919073/pexels-photo-919073.jpeg?auto=compress&cs=tinysrgb&w=400",
-      features: [
-        "Baliza V16 Challux homologada",
-        "Chaleco reflectante incluido",
-        "Herramientas de emergencia",
-        "Cable USB-C de emergencia",
-        "Bolsa de transporte profesional"
-      ],
-      inStock: true
     }
   ];
 
@@ -76,14 +33,14 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Nuestros Productos
+            Baliza V16 Certificada
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Toda la gama de balizas V16 homologadas por la DGT. Encuentra el modelo que mejor se adapte a tus necesidades.
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            La baliza V16 homologada por la DGT con certificación IDIADA. Cumple con todos los requisitos legales obligatorios desde 2026.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div className="flex justify-center">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -95,15 +52,15 @@ const Products: React.FC<ProductsProps> = ({ onAddToCart }) => {
 
         <div className="mt-12 text-center">
           <div className="bg-blue-100 border border-blue-200 rounded-lg p-6 max-w-4xl mx-auto">
-            <h3 className="text-lg font-semibold text-blue-900 mb-2">
-              ¿Necesitas ayuda para elegir?
+            <h3 className="text-lg md:text-xl font-semibold text-blue-900 mb-2">
+              ¿Tienes dudas sobre la baliza V16?
             </h3>
-            <p className="text-blue-700 mb-4">
-              Nuestro equipo de expertos te ayudará a encontrar la baliza perfecta para tu vehículo.
+            <p className="text-base md:text-lg text-blue-700 mb-4">
+              Nuestro equipo de expertos está disponible para resolver todas tus preguntas sobre la normativa DGT y las características del producto.
             </p>
-            <button className="bg-blue-900 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors">
+            <a href="#contacto" className="inline-block bg-blue-900 text-white px-6 py-3 text-base rounded-lg hover:bg-blue-800 transition-colors">
               Contactar con Expertos
-            </button>
+            </a>
           </div>
         </div>
       </div>

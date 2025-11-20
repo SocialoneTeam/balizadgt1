@@ -16,16 +16,16 @@ const Header: React.FC<HeaderProps> = ({ cartItems, onCartClick }) => {
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-1">
-              <Phone size={14} />
-              <span>900 123 456</span>
+              <Phone size={16} />
+              <a href="tel:+34900123456" className="hover:underline">900 123 456</a>
             </div>
             <div className="flex items-center space-x-1">
-              <MapPin size={14} />
-              <span>Envío gratuito a toda España</span>
+              <MapPin size={16} />
+              <span className="text-base">Envío gratuito a toda España</span>
             </div>
           </div>
           <div className="hidden md:block">
-            <span className="font-medium">Obligatorio desde el 1 de enero de 2026</span>
+            <span className="font-medium text-base">Obligatorio desde el 1 de enero de 2026</span>
           </div>
         </div>
       </div>
@@ -34,27 +34,25 @@ const Header: React.FC<HeaderProps> = ({ cartItems, onCartClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-blue-900">
-              Challux<span className="text-red-600">V16</span>
-            </h1>
-            <span className="ml-2 text-sm text-gray-600 hidden sm:block">Certificado IDIADA</span>
+            <img src="/Logo_Balizadgt.png" alt="Baliza DGT V16" className="h-12" />
+            <span className="ml-3 text-base text-gray-600 hidden sm:block">Certificado IDIADA</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            <a href="#inicio" className="text-gray-700 hover:text-blue-900 font-medium transition-colors">
+            <a href="#inicio" className="text-gray-700 hover:text-blue-900 font-medium transition-colors text-base">
               Inicio
             </a>
-            <a href="#productos" className="text-gray-700 hover:text-blue-900 font-medium transition-colors">
-              Productos
+            <a href="#productos" className="text-gray-700 hover:text-blue-900 font-medium transition-colors text-base">
+              Producto
             </a>
-            <a href="#normativa" className="text-gray-700 hover:text-blue-900 font-medium transition-colors">
+            <a href="#normativa" className="text-gray-700 hover:text-blue-900 font-medium transition-colors text-base">
               Normativa
             </a>
-            <a href="#faq" className="text-gray-700 hover:text-blue-900 font-medium transition-colors">
+            <a href="#faq" className="text-gray-700 hover:text-blue-900 font-medium transition-colors text-base">
               FAQ
             </a>
-            <a href="#contacto" className="text-gray-700 hover:text-blue-900 font-medium transition-colors">
+            <a href="#contacto" className="text-gray-700 hover:text-blue-900 font-medium transition-colors text-base">
               Contacto
             </a>
           </nav>
@@ -86,19 +84,19 @@ const Header: React.FC<HeaderProps> = ({ cartItems, onCartClick }) => {
         {isMenuOpen && (
           <nav className="md:hidden py-4 border-t">
             <div className="flex flex-col space-y-4">
-              <a href="#inicio" className="text-gray-700 hover:text-blue-900 font-medium">
+              <a href="#inicio" onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-blue-900 font-medium text-base">
                 Inicio
               </a>
-              <a href="#productos" className="text-gray-700 hover:text-blue-900 font-medium">
-                Productos
+              <a href="#productos" onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-blue-900 font-medium text-base">
+                Producto
               </a>
-              <a href="#normativa" className="text-gray-700 hover:text-blue-900 font-medium">
+              <a href="#normativa" onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-blue-900 font-medium text-base">
                 Normativa
               </a>
-              <a href="#faq" className="text-gray-700 hover:text-blue-900 font-medium">
+              <a href="#faq" onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-blue-900 font-medium text-base">
                 FAQ
               </a>
-              <a href="#contacto" className="text-gray-700 hover:text-blue-900 font-medium">
+              <a href="#contacto" onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:text-blue-900 font-medium text-base">
                 Contacto
               </a>
             </div>

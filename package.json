@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "echo 'Este es un tema de Shopify. No requiere servidor de desarrollo.'",
-    "build": "echo 'Tema Shopify construido exitosamente. Comprimir carpetas: assets, config, layout, locales, sections, snippets, templates'",
+    "dev": "vite react-app",
+    "build": "vite build react-app && echo 'App React construida. Para Shopify: comprimir carpetas assets, config, layout, locales, sections, snippets, templates'",
     "lint": "eslint .",
-    "preview": "echo 'Este es un tema de Shopify. Sube el ZIP a Shopify para previsualizarlo.'"
+    "preview": "vite preview react-app"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^4.0.2",
